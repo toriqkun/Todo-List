@@ -24,7 +24,7 @@ function checkEmptyTable() {
   }
 }
 
-// Tambah task
+// Tambah Task
 addBtn.addEventListener("click", () => {
   const task = todoInput.value.trim();
   const date = dateInput.value.trim();
@@ -68,6 +68,7 @@ addBtn.addEventListener("click", () => {
 
   tableBody.appendChild(row);
 
+  // reset input manual
   todoInput.value = "";
   datePicker.clear();
 });
