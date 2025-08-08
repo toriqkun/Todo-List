@@ -1,0 +1,462 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 40px 0;
+  background: url(/img/img.jpeg) no-repeat center center;
+  background-size: cover;
+  font-family: "Amaranth", sans-serif;
+}
+.container {
+  position: relative;
+  max-width: 850px;
+  width: 100%;
+  margin: auto;
+  padding: 20px;
+  background: transparent;
+  border: 2px solid rgba(63, 63, 63, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+}
+.container h2 {
+  color: #141414;
+  font-size: 35px;
+  text-align: center;
+  font-family: "Righteous", sans-serif;
+  letter-spacing: 1.5px;
+  margin: 15px 0 50px;
+}
+.addTodo {
+  width: 100%;
+  display: flex;
+  padding: 10px 0;
+  gap: 15px;
+}
+.input-box {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  border-bottom: 2px solid #3e3e3e;
+}
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-size: 17.5px;
+  color: #323131;
+  font-weight: 500;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+.input-box input:focus ~ label,
+.input-box input:not(:placeholder-shown) ~ label,
+.input-box input:valid ~ label {
+  top: -10px;
+  font-size: 18px;
+  color: #323131;
+}
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  padding: 2px 6px;
+  border: none;
+  outline: none;
+  color: #323131;
+  font-size: 16px;
+  padding-top: 20px;
+}
+.flatpickr-calendar.arrowTop:before,
+.flatpickr-calendar.arrowTop:after {
+  display: none !important;
+}
+.input-box .calendar-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #323131;
+  pointer-events: none;
+  font-size: 16px;
+}
+.input-box input:-webkit-autofill,
+.input-box input:-webkit-autofill:hover,
+.input-box input:-webkit-autofill:focus,
+.input-box input:-webkit-autofill:active {
+  -webkit-text-fill-color: #323131 !important;
+  background-color: transparent !important;
+  animation-name: autofill-fix;
+  animation-fill-mode: both;
+}
+.addTodo button {
+  margin: 0 10px;
+  background: #1d1d1d;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 18px;
+  text-transform: uppercase;
+  padding: 10px 12px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.addTodo button:hover {
+  background: #292929;
+}
+.btn {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 2px;
+}
+.btn .filter,
+.btn .delete {
+  padding: 9px 12px;
+  margin: 15px 0;
+  font-size: 15px;
+  border-radius: 7px;
+  border: none;
+  background: #1d1d1d;
+  color: #fff;
+}
+.btn .filter:hover,
+.btn .delete:hover {
+  background: #292929;
+}
+.filter {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+
+  /* teks di tengah */
+  text-align: center;
+  text-align-last: center;
+}
+.filter option {
+  text-align: start;
+}
+.filter:focus {
+  outline: none;
+}
+
+.table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+.table table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.table thead {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.table tbody {
+  display: block;
+  max-height: 185px; /* tinggi maksimal scroll */
+  overflow-y: auto;
+  width: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: black #3e3e3e97;
+}
+.table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.table tbody::-webkit-scrollbar {
+  width: 10px;
+}
+.table tbody::-webkit-scrollbar-track {
+  background: #3e3e3e97;
+  border-radius: 10px;
+}
+.table tbody::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 10px;
+}
+.table tbody::-webkit-scrollbar-thumb:hover {
+  background-color: #222;
+}
+.table th {
+  background: #1d1d1d;
+  color: #fff;
+  height: 43px;
+  font-size: 17px;
+  font-weight: 400;
+}
+.table td {
+  height: 30px;
+  background: #3e3e3e97;
+  padding: 10px 0;
+  text-align: center;
+  margin: 0;
+  font-size: 16px;
+}
+.table th:nth-child(1) {
+  width: 30px;
+  border-top-left-radius: 10px;
+}
+.table td:nth-child(1) {
+  width: 30px;
+}
+.table th:nth-child(2),
+.table td:nth-child(2) {
+  width: 110px;
+}
+.table th:nth-child(3),
+.table td:nth-child(3) {
+  width: 100px;
+}
+.table th:nth-child(4),
+.table td:nth-child(4) {
+  width: 100px;
+}
+.table th:nth-child(5) {
+  width: 90px;
+  border-top-right-radius: 10px;
+}
+.table td:nth-child(5) {
+  width: 90px;
+}
+.empty-row td {
+  text-align: center;
+  background: rgba(62, 62, 62, 0.522);
+  font-size: 17px;
+  letter-spacing: 1px;
+  padding: 15px;
+  color: #fff;
+}
+.status.completed {
+  color: #00ff62c2;
+  font-weight: bold;
+}
+
+.status {
+  color: rgb(255, 157, 0);
+  font-weight: bold;
+}
+.action-btn {
+  border: none;
+  padding: 3px 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.action-btn.complete {
+  background-color: #00ff62c2;
+  color: black;
+  padding: 5px;
+}
+.action-btn.delete {
+  background-color: #e9696997;
+  color: black;
+  padding: 5px;
+}
+
+/* --- RESPONSIVE STYLE --- */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 95%;
+    padding: 15px;
+  }
+
+  .container h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  .addTodo {
+    gap: 10px;
+  }
+
+  .input-box {
+    width: 48%;
+  }
+  .btn {
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0;
+  }
+
+  .btn .filter,
+  .btn .delete {
+    width: 35%;
+  }
+
+  .table th,
+  .table td {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 95%;
+    padding: 10px;
+  }
+
+  .container h2 {
+    font-size: 24px;
+  }
+
+  .addTodo {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .input-box {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .addTodo button {
+    width: 100%;
+    margin: 0;
+  }
+
+  .btn .filter,
+  .btn .delete {
+    width: 30%;
+    margin: 5px 0;
+  }
+
+  .table th {
+    height: 37px;
+    font-size: 8.5px;
+    padding: 4px 0;
+  }
+
+  .table th,
+  .table td {
+    font-size: 12px;
+    padding: 5px;
+  }
+  .table th:nth-child(1),
+  .table td:nth-child(1) {
+    width: 25px; /* No */
+  }
+
+  .table th:nth-child(2),
+  .table td:nth-child(2) {
+    width: 80px; /* Task */
+    word-wrap: break-word;
+  }
+
+  .table th:nth-child(3),
+  .table td:nth-child(3) {
+    width: 70px; /* Date */
+  }
+
+  .table th:nth-child(4),
+  .table td:nth-child(4) {
+    width: 65px; /* Status */
+  }
+
+  .table th:nth-child(5),
+  .table td:nth-child(5) {
+    width: 60px; /* Action */
+  }
+  .action-btn.complete {
+    padding: 3px;
+    font-size: 11px;
+  }
+  .action-btn.delete {
+    padding: 3px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 400px) {
+  .container h2 {
+    font-size: 20px;
+  }
+
+  .input-box {
+    margin: 0;
+  }
+
+  .input-box label {
+    font-size: 14px;
+  }
+  .input-box input:focus ~ label,
+  .input-box input:not(:placeholder-shown) ~ label,
+  .input-box input:valid ~ label {
+    top: -2px;
+    font-size: 14px;
+  }
+  .input-box input {
+    font-size: 13px;
+  }
+  .table table {
+    min-width: 330px;
+  }
+
+  .table th {
+    height: 30px;
+    font-size: 8.5px;
+    padding: 4px 0;
+  }
+  .table td {
+    font-size: 8.5px;
+    padding: 4px 0;
+  }
+
+  .table th:nth-child(1),
+  .table td:nth-child(1) {
+    width: 7px;
+  }
+
+  .table th:nth-child(2),
+  .table td:nth-child(2) {
+    width: 18px;
+  }
+
+  .table th:nth-child(3),
+  .table td:nth-child(3) {
+    width: 18px;
+  }
+
+  .table th:nth-child(4),
+  .table td:nth-child(4) {
+    width: 18px;
+  }
+
+  .table th:nth-child(5),
+  .table td:nth-child(5) {
+    width: 18px;
+  }
+  .action-btn.complete {
+    padding: 3px;
+    font-size: 8px;
+  }
+  .action-btn.delete {
+    padding: 3px;
+    font-size: 8px;
+  }
+
+  .addTodo button,
+  .btn .filter,
+  .btn .delete {
+    font-size: 12px;
+    padding: 7px 5px;
+  }
+}

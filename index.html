@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <!-- Link FAVICON -->
+     <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    <!-- Link Font Awesome --> 
+    <script src="https://kit.fontawesome.com/3da398904a.js" crossorigin="anonymous"></script>
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Link Font Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Righteous&display=swap" rel="stylesheet" />
+    <!-- Link Flatpickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Todo List</h2>
+      <div class="addTodo">
+        <div class="input-box">
+          <input type="text" id="todo" placeholder="" autocomplete="off" required />
+          <label for="todo">Task Name</label>
+        </div>
+        <div class="input-box">
+          <input type="text" id="date" class="date-input" placeholder="" required />
+          <label for="date">Date</label>
+          <i class="fa-solid fa-calendar calendar-icon"></i>
+        </div>
+
+        <button id="addBtn"><i class="fa-solid fa-plus"></i></button>
+      </div>
+
+      <div class="btn">
+        <select id="filterStatus" class="filter">
+          <option value="all">FILTER</option>
+          <option value="process">Process</option>
+          <option value="completed">Completed</option>
+        </select>
+        <button class="delete" id="deleteAll">DELETE ALL</button>
+      </div>
+
+      <div class="table">
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Task</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="empty-row">
+              <td colspan="5">No tasks found</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Script Flatpickr -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <!-- Script Javascript -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
