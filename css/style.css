@@ -56,12 +56,12 @@ body {
   transition: 0.3s ease;
 }
 .input-box input:focus ~ label,
-.input-box input:not(:placeholder-shown) ~ label,
-.input-box input:valid ~ label {
+.input-box input.has-value ~ label {
   top: -10px;
   font-size: 18px;
   color: #323131;
 }
+
 .input-box input {
   width: 100%;
   height: 100%;
@@ -401,9 +401,8 @@ body {
     font-size: 14px;
   }
   .input-box input:focus ~ label,
-  .input-box input:not(:placeholder-shown) ~ label,
-  .input-box input:valid ~ label {
-    top: -2px !important;
+  .input-box input.has-value ~ label {
+    top: -2px;
     font-size: 14px;
   }
   .input-box input {

@@ -13,6 +13,10 @@ const tableBody = document.querySelector("table tbody");
 const filterBtn = document.querySelector(".filter");
 const deleteAllBtn = document.querySelector(".delete");
 
+dateInput.addEventListener("input", () => {
+  dateInput.classList.toggle("has-value", dateInput.value.trim() !== "");
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   dateInput.value = "";
 });
