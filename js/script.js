@@ -69,7 +69,7 @@ addBtn.addEventListener("click", () => {
   tableBody.appendChild(row);
 
   todoInput.value = "";
-  dateInput.value = "";
+  datePicker.clear();
 });
 
 // FILTER & DELETE
