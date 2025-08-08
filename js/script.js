@@ -17,6 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
   dateInput.value = "";
 });
 
+datePicker.clear();
+dateInput.value = "";
+
 let no = 1;
 
 function checkEmptyTable() {
