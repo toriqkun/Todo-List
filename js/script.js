@@ -1,5 +1,5 @@
 // FLATPICKR DATE
-flatpickr("#date", {
+const datePicker = flatpickr("#date", {
   dateFormat: "d/m/Y",
   altInput: false,
   altFormat: "d M Y",
@@ -12,6 +12,10 @@ const dateInput = document.getElementById("date");
 const tableBody = document.querySelector("table tbody");
 const filterBtn = document.querySelector(".filter");
 const deleteAllBtn = document.querySelector(".delete");
+
+document.addEventListener("DOMContentLoaded", () => {
+  dateInput.value = "";
+});
 
 let no = 1;
 
@@ -70,7 +74,10 @@ addBtn.addEventListener("click", () => {
 
   // reset input manual
   todoInput.value = "";
-  datePicker.clear();
+  setTimeout(() => {
+    datePicker.clear();
+    dateInput.value = "";
+  }, 50);
 });
 
 // FILTER & DELETE
